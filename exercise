@@ -1,0 +1,15 @@
+import sqlite3
+conn=sqlite3.connect('mrsoft.db')
+cursor=conn.cursor()
+# cursor.execute('create table user1(id int(10) primary key, name varchar(20), age int(10))')#创建数据库
+#cursor.execute('update user set name = ? where id = ? ',('MR', 1)) #修改
+#cursor.execute('delete from user where id=?', (1,))#删除
+aaa=10
+#cursor.execute("insert into user1 (id, name, age) values (?,?,?)", (1, 'MM', aaa))#插入代码1,aaa不要加引号
+cursor.execute("insert into user1 (id, name, age) values (3,'aa',{})". format(aaa))#插入代码2
+cursor.execute('select * from user1')
+result1=cursor.fetchall()
+print(result1)
+cursor.close()
+conn.commit()
+conn.close()
